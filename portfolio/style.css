@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anson · DevOps portfolio</title>
+  <!-- Font Awesome for icons (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* reset & base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f2f5f9;
+      font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 1.5rem;
+      color: #1e293b;
+    }
+
+    /* simple card – exactly like the screenshot vibe */
+    .profile-card {
+      max-width: 700px;
+      width: 100%;
+      background: white;
+      border-radius: 2rem;
+      padding: 2.5rem 2.5rem 2.8rem;
+      box-shadow: 0 20px 35px -8px rgba(0,0,0,0.1), 0 8px 12px -4px rgba(0,0,0,0.05);
+      border: 1px solid #ffffff50;
+      backdrop-filter: blur(2px);
+      transition: all 0.2s;
+    }
+
+    /* header: Hi, I'm Anson */
+    .greeting {
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.02em;
+      color: #0f172a;
+    }
+
+    .name-highlight {
+      background: linear-gradient(145deg, #2563eb, #7c3aed);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 700;
+    }
+
+    /* title line */
+    .title {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #334155;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .title i {
+      color: #2563eb;
+      font-size: 1.4rem;
+    }
+
+    /* description paragraph – just like "Welcome to my simple portfolio..." */
+    .description {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #475569;
+      max-width: 550px;
+      margin-bottom: 2.2rem;
+      border-left: 4px solid #2563eb30;
+      padding-left: 1.2rem;
+      background: #f8fafc;
+      border-radius: 0 1rem 1rem 0;
+      padding: 1rem 1.5rem;
+    }
+
+    /* connect line */
+    .connect-label {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #1e293b;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .connect-label i {
+      color: #2563eb;
+      margin-right: 8px;
+    }
+
+    /* social / contact links – exactly LinkedIn, GitHub, Projects */
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+
+    .link-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #f1f4f9;
+      padding: 0.8rem 1.8rem;
+      border-radius: 40px;
+      text-decoration: none;
+      color: #1e293b;
+      font-weight: 550;
+      font-size: 1.1rem;
+      transition: all 0.15s;
+      border: 1px solid transparent;
+    }
+
+    .link-item i {
+      font-size: 1.4rem;
+      color: #2563eb;
+    }
+
+    .link-item:hover {
+      background: #e6eefc;
+      border-color: #2563eb30;
+      transform: scale(1.02);
+      box-shadow: 0 6px 12px -8px #2563eb;
+    }
+
+    /* projects icon uses fa-code to match "Projects" from screenshot */
+    /* all three items stay inline, but wrap nicely if screen is small */
+
+    /* subtle footer / note (optional, but keeps proportions) */
+    .footer-note {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      border-top: 1px dashed #cbd5e1;
+      padding-top: 1.2rem;
+    }
+
+    .footer-note i {
+      color: #2563eb;
+    }
+
+    /* make sure it looks clean on small devices */
+    @media (max-width: 450px) {
+      .profile-card {
+        padding: 1.8rem;
+      }
+      .greeting {
+        font-size: 2rem;
+      }
+      .link-item {
+        padding: 0.6rem 1.2rem;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-card">
+    <!-- Hi, I'm Anson (with gradient name) -->
+    <div class="greeting">
+      Hi, I'm <span class="name-highlight">Anson</span>
+    </div>
+
+    <!-- DevOps Engineer (Azure) with icon -->
+    <div class="title">
+      <i class="fab fa-microsoft"></i> DevOps Engineer (Azure)
+    </div>
+
+    <!-- description paragraph exactly as screenshot -->
+    <div class="description">
+      <i class="fas fa-terminal" style="margin-right: 8px; color: #2563eb;"></i>
+      Welcome to my simple portfolio! I use this page to demonstrate how basic HTML and CSS work together to create a profile.
+    </div>
+
+    <!-- "Connect with me." line -->
+    <div class="connect-label">
+      <i class="fas fa-paper-plane"></i> Connect with me.
+    </div>
+
+    <!-- three buttons / links: LinkedIn, GitHub, Projects -->
+    <div class="links">
+      <!-- linkedin -->
+      <a href="#" class="link-item">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+      <!-- github -->
+      <a href="#" class="link-item">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+      <!-- projects (using code icon as placeholder) -->
+      <a href="#" class="link-item">
+        <i class="fas fa-code"></i> Projects
+      </a>
+    </div>
+
+    <!-- tiny footnote to keep proportions / nothing intrusive -->
+    <div class="footer-note">
+      <i class="fas fa-crown" style="font-size: 0.8rem;"></i>
+      simple profile · HTML + CSS
+    </div>
+  </div>
+
+  <!-- absolutely no JS needed, but if you want a tiny console greeting (optional) -->
+  <script>
+    (function() {
+      // just a tiny hello – matches the minimal style
+      console.log("🐧 Anson's portfolio – exactly like the screenshot 🐧");
+    })();
+  </script>
+</body>
+</html>
