@@ -1,242 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Advanced Flip Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, sans-serif;
-}
+    <title>Vikram Portfolio</title>
 
-body{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:radial-gradient(circle at top,#1e3c72,#2a5298,#0f0f0f);
-overflow:hidden;
-}
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
 
-/* BOOK */
-.book{
-width:380px;
-height:520px;
-perspective:2000px;
-position:relative;
-}
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
 
-/* PAGE */
-.page{
-width:100%;
-height:100%;
-position:absolute;
-top:0;
-left:0;
-transform-origin:left;
-transition:transform 1s ease;
-border-radius:12px;
-overflow:hidden;
-box-shadow:0 30px 60px rgba(0,0,0,0.5);
-background:white;
-}
-
-/* FLIP */
-.flipped{
-transform:rotateY(-180deg);
-z-index:0;
-}
-
-/* STACK ORDER */
-#p1{z-index:5;}
-#p2{z-index:4;}
-#p3{z-index:3;}
-#p4{z-index:2;}
-#p5{z-index:1;}
-
-/* PAGE CONTENT */
-.content{
-padding:20px;
-text-align:center;
-}
-
-.content h1{
-font-size:24px;
-margin-bottom:10px;
-color:#0f172a;
-}
-
-.content p{
-font-size:14px;
-color:#555;
-margin-top:10px;
-}
-
-/* IMAGES */
-.content img{
-width:100%;
-height:220px;
-object-fit:cover;
-border-radius:10px;
-margin-top:10px;
-}
-
-/* COVER PAGE */
-.cover{
-background:linear-gradient(135deg,#00c6ff,#0072ff);
-color:white;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-}
-
-.cover h1{
-font-size:32px;
-}
-
-.cover p{
-color:#e0f7ff;
-}
-
-/* BUTTONS */
-.controls{
-position:absolute;
-bottom:-70px;
-width:100%;
-display:flex;
-justify-content:space-between;
-}
-
-button{
-padding:10px 18px;
-border:none;
-background:#00c6ff;
-color:white;
-border-radius:8px;
-cursor:pointer;
-font-weight:bold;
-transition:0.3s;
-}
-
-button:hover{
-background:#0072ff;
-transform:scale(1.05);
-}
-
-/* RESPONSIVE */
-@media(max-width:500px){
-.book{
-transform:scale(0.85);
-}
-}
-</style>
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="book">
 
-<!-- PAGE 1 COVER -->
-<div class="page" id="p1">
-<div class="content cover">
-<h1>My Flip Website</h1>
-<p>Advanced Responsive 3D Page Flip</p>
-</div>
-</div>
 
-<!-- PAGE 2 -->
-<div class="page" id="p2">
-<div class="content">
-<h1>Welcome</h1>
-<img src="EE.jpg">
-<p>This is a modern flip-style website with smooth animation.</p>
-</div>
-</div>
+<div class="overlay"></div>
 
-<!-- PAGE 3 -->
-<div class="page" id="p3">
-<div class="content">
-<h1>Gallery</h1>
-<img src="ie.jpg">
-<p>Beautiful image-based content pages.</p>
-</div>
-</div>
+<!-- NAVBAR -->
+<nav>
+    <div class="nav-container">
 
-<!-- PAGE 4 -->
-<div class="page" id="p4">
-<div class="content">
-<h1>Technology</h1>
-<img src="ieee.jpg">
-<p>Advanced UI using HTML, CSS & JavaScript.</p>
-</div>
-</div>
+        <div class="logo" data-aos="zoom-in">
+            <span>WELCOME</span>
+        </div>
 
-<!-- PAGE 5 -->
-<div class="page" id="p5">
-<div class="content">
-<h1>End Page</h1>
-<img src="ii.jpg">
-<p>Thank you for visiting this flip website.</p>
-</div>
-</div>
+        <div class="links">
+            <div class="link"><a href="#">Home</a></div>
+            <div class="link"><a href="#">About</a></div>
+            <div class="link"><a href="#">Skills</a></div>
+            <div class="link"><a href="#">Projects</a></div>
+            <div class="link"><a href="#">Blogs</a></div>
+            <div class="link contact-btn"><a href="#">Contact</a></div>
+        </div>
 
-<!-- CONTROLS -->
-<div class="controls">
-<button onclick="prevPage()">⬅ Prev</button>
-<button onclick="nextPage()">Next ➡</button>
-</div>
+        <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+    </div>
 
-</div>
+    <!-- MOBILE MENU -->
+    <div class="dropdown">
+        <div class="links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Skills</a>
+            <a href="#">Projects</a>
+            <a href="#">Blogs</a>
+            <a href="#">Contact</a>
 
+            <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section>
+    <div class="main-container">
+
+        <div class="image" data-aos="zoom-in-right">
+            <img src="main.png" alt="profile">
+        </div>
+
+        <div class="content">
+
+            <h3 data-aos="fade-right">Code. Create. Conquer.</h3>
+
+            <h1 data-aos="fade-left">Hi, I'm <span> VIKRAM</span></h1>
+
+            <div class="typewriter">
+                I'm <span id="typing">
+                Final-year B.Tech student passionate 
+                about web development.
+                Currently learning Full Stack Development 
+                and building real-world projects using modern technologies.
+            </span>
+            
+
+            
+
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            </div>
+
+            <div class="btn">
+                <button>Download CV</button>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- SCRIPTS -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
+AOS.init({ offset: 0 });
 
-let current = 1;
+// Typewriter
+const words = [
+                "Final-year B.Tech student passionate about web development\n",
+            
+                "Currently learning Full Stack Development and building real-world projects using modern technologies\n"
+            ];
+let i = 0;
+let j = 0;
+let current = "";
+let isDeleting = false;
+const typing = document.getElementById("typing");
 
-function nextPage(){
-if(current === 1){
-document.getElementById("p1").classList.add("flipped");
-}
-else if(current === 2){
-document.getElementById("p2").classList.add("flipped");
-}
-else if(current === 3){
-document.getElementById("p3").classList.add("flipped");
-}
-else if(current === 4){
-document.getElementById("p4").classList.add("flipped");
-}
-current++;
-if(current > 5) current = 5;
-}
+function type() {
+    current = words[i];
 
-function prevPage(){
-if(current === 5){
-document.getElementById("p4").classList.remove("flipped");
-}
-else if(current === 4){
-document.getElementById("p3").classList.remove("flipped");
-}
-else if(current === 3){
-document.getElementById("p2").classList.remove("flipped");
-}
-else if(current === 2){
-document.getElementById("p1").classList.remove("flipped");
-}
-current--;
-if(current < 1) current = 1;
+    if (isDeleting) {
+        typing.textContent = current.substring(0, j--);
+        if (j < 0) {
+            isDeleting = false;
+            i = (i + 1) % words.length;
+        }
+    } else {
+        typing.textContent = current.substring(0, j++);
+        if (j > current.length) {
+            isDeleting = true;
+            setTimeout(type, 1000);
+            return;
+        }
+    }
+
+    setTimeout(type, isDeleting ? 60 : 120);
 }
 
-// Keyboard control
-document.addEventListener("keydown",(e)=>{
-if(e.key==="ArrowRight") nextPage();
-if(e.key==="ArrowLeft") prevPage();
-});
+type();
 
+// Mobile menu
+function hamburg(){
+    document.querySelector(".dropdown").style.transform = "translateY(0)";
+}
+
+function cancel(){
+    document.querySelector(".dropdown").style.transform = "translateY(-500px)";
+}
 </script>
 
 </body>
